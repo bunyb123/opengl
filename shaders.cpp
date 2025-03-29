@@ -5,24 +5,10 @@
 
 
 
-const char* vertexShader =
-"#version 330 core\n"
-"layout(location = 0) in vec3 aPos;\n"
-"void main()\n"
-"{\n"
-"gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-"}\0";
+GLuint shaderProgram;
 
-const char* fragmentShader =
-"#version 330 core\n"
-"out vec4 color;\n"
-"void main() {\n"
-"color = vec4(0.0f, 0.5f, 1.0f, 1.0f);\n"
-"}\0";
 shaders::shaders(){
-	GLuint shaderProgram{};
-	createProgram();
-	glUseProgram(shaderProgram);
+	shaderProgram = createProgram();
 }
 
 GLuint shaders::createShader(unsigned int shaderType, const char* shaderSource)
@@ -43,6 +29,20 @@ GLuint shaders::createShader(unsigned int shaderType, const char* shaderSource)
 	return shader;
 }
 GLuint shaders::createProgram() {
+	const char* vertexShader =
+		"#version 330 core\n"
+		"layout(location = 0) in vec3 aPos;\n"
+		"void main()\n"
+		"{\n"
+		"gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+		"}\0";
+
+	const char* fragmentShader =
+		"#version 330 core\n"
+		"out vec4 color;\n"
+		"void main() {\n"
+		"color = vec4(0.0f, 0.5f, 1.0f, 1.0f);\n"
+		"}\0";
 	shaderProgram = glCreateProgram();
 
 	GLuint vs = createShader(GL_VERTEX_SHADER, vertexShader);
@@ -57,5 +57,10 @@ GLuint shaders::createProgram() {
 	glDeleteShader(vs);
 	glDeleteShader(fs);
 
+	return shaderProgram;
+}
+
+GLuint shaders::getShader()
+{
 	return shaderProgram;
 }

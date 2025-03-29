@@ -9,6 +9,7 @@ public:
 	shaders();
 	GLuint createShader(unsigned int shaderType, const char* shaderSource);
 	GLuint createProgram();
+	GLuint getShader();
 
 
 };

@@ -12,6 +12,8 @@ int main() {
 	mesh Triangle;
 	shaders myshaders;
 
+	glUseProgram(myshaders.getShader());
+
 		glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 
 		while (!gwindow.shouldClose()) {
