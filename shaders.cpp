@@ -20,7 +20,9 @@ const char* fragmentShader =
 "color = vec4(0.0f, 0.5f, 1.0f, 1.0f);\n"
 "}\0";
 shaders::shaders(){
-
+	GLuint shaderProgram{};
+	createProgram();
+	glUseProgram(shaderProgram);
 }
 
 GLuint shaders::createShader(unsigned int shaderType, const char* shaderSource)
