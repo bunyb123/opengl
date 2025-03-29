@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\librarys\glad\src\glad.c" />
+    <ClCompile Include="..\trianglecube\main.cpp" />
+    <ClCompile Include="..\trianglecube\mesh.cpp" />
+    <ClCompile Include="..\trianglecube\window.cpp" />
+    <ClCompile Include="shaders.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\librarys\glad\include\glad\glad.h" />
+    <ClInclude Include="include\mesh.h" />
+    <ClInclude Include="..\trianglecube\window.h" />
+    <ClInclude Include="include\shaders.h" />
+  </ItemGroup>
+</Project>
