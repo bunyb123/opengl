@@ -38,10 +38,14 @@ GLuint shaders::createProgram() {
 		"}\0";
 
 	const char* fragmentShader =
-		"#version 330 core\n"
+		"#version 450 core\n"
 		"out vec4 color;\n"
-		"void main() {\n"
-		"color = vec4(0.0f, 0.5f, 1.0f, 1.0f);\n"
+		"void main(void)\n"
+		"{\n"
+		"color = vec4(sin(gl_FragCoord.x * 0.25) * 0.5 + 0.5,\n"
+		"cos(gl_FragCoord.y * 0.25) * 0.5 + 0.5,\n"
+		"sin(gl_FragCoord.x * 0.15) * cos(gl_FragCoord.y * 0.15),\n"
+		"1.0);"
 		"}\0";
 	shaderProgram = glCreateProgram();
 

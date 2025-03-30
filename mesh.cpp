@@ -7,7 +7,7 @@
 
 mesh::mesh() {
     float vertices[9] = {
-    cos(glfwGetTime() - 0.5f * 0.5f),  0.5f, 0.0f,
+    0.0f,  0.5f, 0.0f,
     0.5f, -0.5f, 0.0f,
    -0.5f, -0.5f, 0.0f
     };
@@ -24,11 +24,7 @@ mesh::mesh() {
 }
 
 void mesh::draw() {
-    float vertices[9] = {
-cos(glfwGetTime() - 0.5f * 0.5f),  0.5f, 0.0f,
-0.5f, -0.5f, 0.0f,
--0.5f, -0.5f, 0.0f
-    };
+
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
