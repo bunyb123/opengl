@@ -9,6 +9,7 @@ GLuint shaderProgram;
 
 shaders::shaders(){
 	shaderProgram = createProgram();
+	glUseProgram(shaderProgram);
 }
 
 GLuint shaders::createShader(unsigned int shaderType, const char* shaderSource)
@@ -32,13 +33,14 @@ GLuint shaders::createProgram() {
 	const char* vertexShader =
 		"#version 330 core\n"
 		"layout(location = 0) in vec3 aPos;\n"
+		"uniform mat4 MVP;"
 		"void main()\n"
 		"{\n"
-		"gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+		"gl_Position = MVP * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 		"}\0";
 
 	const char* fragmentShader =
-		"#version 450 core\n"
+		"#version 330 core\n"
 		"out vec4 color;\n"
 		"void main(void)\n"
 		"{\n"

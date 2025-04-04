@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\projects\triangles\include;D:\librarys\glfw-3.4\include;D:\librarys\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\librarys\glm;D:\projects\triangles\include;D:\librarys\glfw-3.4\include;D:\librarys\glad\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\librarys\glfw-3.4\build\src\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\projects\triangles\include;D:\librarys\glfw-3.4\include;D:\librarys\glad\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\librarys\glm;D:\projects\triangles\include;D:\librarys\glfw-3.4\include;D:\librarys\glad\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\librarys\glfw-3.4\build\src\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -112,6 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\librarys\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,6 +128,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\librarys\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,16 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\librarys\glad\src\glad.c" />
-    <ClCompile Include="..\trianglecube\main.cpp" />
-    <ClCompile Include="..\trianglecube\mesh.cpp" />
-    <ClCompile Include="..\trianglecube\window.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mesh.cpp" />
     <ClCompile Include="shaders.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\librarys\glad\include\glad\glad.h" />
-    <ClInclude Include="..\trianglecube\window.h" />
     <ClInclude Include="include\mesh.h" />
     <ClInclude Include="include\shaders.h" />
+    <ClInclude Include="include\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

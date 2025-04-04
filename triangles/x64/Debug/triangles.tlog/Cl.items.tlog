@@ -1,5 +1,5 @@
 D:\librarys\glad\src\glad.c;D:\projects\triangles\triangles\x64\Debug\glad.obj
-D:\projects\trianglecube\main.cpp;D:\projects\triangles\triangles\x64\Debug\main.obj
-D:\projects\trianglecube\mesh.cpp;D:\projects\triangles\triangles\x64\Debug\mesh.obj
-D:\projects\trianglecube\window.cpp;D:\projects\triangles\triangles\x64\Debug\window.obj
+D:\projects\triangles\main.cpp;D:\projects\triangles\triangles\x64\Debug\main.obj
+D:\projects\triangles\mesh.cpp;D:\projects\triangles\triangles\x64\Debug\mesh.obj
 D:\projects\triangles\shaders.cpp;D:\projects\triangles\triangles\x64\Debug\shaders.obj
+D:\projects\triangles\window.cpp;D:\projects\triangles\triangles\x64\Debug\window.obj

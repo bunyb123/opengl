@@ -1,11 +1,13 @@
 #pragma once
+#include "shaders.h"
 
 class mesh {
 	public:
 
 		GLuint VBO, VAO;
-
-		float vertices[9];
+		GLuint MatrixID;
+		shaders myshaders;
+		float vertices[12];
 		mesh();
 		~mesh();
 		void draw();
