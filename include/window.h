@@ -10,7 +10,7 @@ class window {
 		~window();
 		void swapBuffers();
 		bool shouldClose();
-
+		float getTime();
 		static void error_callback(int error, const char* description);
 		static void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 };

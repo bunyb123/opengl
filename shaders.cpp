@@ -4,7 +4,6 @@
 
 
 
-
 GLuint shaderProgram;
 
 shaders::shaders(){
@@ -32,22 +31,24 @@ GLuint shaders::createShader(unsigned int shaderType, const char* shaderSource)
 GLuint shaders::createProgram() {
 	const char* vertexShader =
 		"#version 330 core\n"
+		"#extension GL_ARB_separate_shader_objects : enable\n"
 		"layout(location = 0) in vec3 aPos;\n"
+		"layout(location = 1) in vec3 vertexColor;\n"
+		"out vec3 fragmentColor;\n"
 		"uniform mat4 MVP;"
 		"void main()\n"
 		"{\n"
 		"gl_Position = MVP * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+		"fragmentColor = vertexColor;"
 		"}\0";
 
 	const char* fragmentShader =
 		"#version 330 core\n"
-		"out vec4 color;\n"
+		"in vec3 fragmentColor;"
+		"out vec3 color;\n"
 		"void main(void)\n"
 		"{\n"
-		"color = vec4(sin(gl_FragCoord.x * 0.25) * 0.5 + 0.5,\n"
-		"cos(gl_FragCoord.y * 0.25) * 0.5 + 0.5,\n"
-		"sin(gl_FragCoord.x * 0.15) * cos(gl_FragCoord.y * 0.15),\n"
-		"1.0);"
+		"color = fragmentColor;\n"
 		"}\0";
 	shaderProgram = glCreateProgram();
 
