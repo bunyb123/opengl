@@ -1,6 +1,4 @@
 ﻿  mesh.cpp
-D:\projects\triangles\mesh.cpp(65,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\projects\triangles\mesh.cpp(167,29): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\projects\triangles\mesh.cpp(168,29): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\projects\triangles\mesh.cpp(169,29): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+  shaders.cpp
+  Generating Code...
   triangles.vcxproj -> D:\projects\triangles\x64\Debug\triangles.exe

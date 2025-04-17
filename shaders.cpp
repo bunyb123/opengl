@@ -4,7 +4,6 @@
 
 
 
-GLuint shaderProgram;
 
 shaders::shaders(){
 	shaderProgram = createProgram();
@@ -30,25 +29,25 @@ GLuint shaders::createShader(unsigned int shaderType, const char* shaderSource)
 }
 GLuint shaders::createProgram() {
 	const char* vertexShader =
-		"#version 330 core\n"
-		"#extension GL_ARB_separate_shader_objects : enable\n"
+		"#version 450 core\n"
 		"layout(location = 0) in vec3 aPos;\n"
-		"layout(location = 1) in vec3 vertexColor;\n"
-		"out vec3 fragmentColor;\n"
-		"uniform mat4 MVP;"
+		"layout(location = 1) in vec2 aTexCoord;\n"
+		"out vec2 vTexCoord;\n"
+		"uniform mat4 MVP;\n"
 		"void main()\n"
 		"{\n"
-		"gl_Position = MVP * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"fragmentColor = vertexColor;"
+		"gl_Position = MVP * vec4(aPos, 1);\n"
+		"vTexCoord = aTexCoord;\n"
 		"}\0";
 
 	const char* fragmentShader =
-		"#version 330 core\n"
-		"in vec3 fragmentColor;"
-		"out vec3 color;\n"
+		"#version 450 core\n"
+		"in vec2 vTexCoord;\n"
+		"out vec4 fragColor;\n"
+		"uniform sampler2D myTextureSampler;\n"
 		"void main(void)\n"
 		"{\n"
-		"color = fragmentColor;\n"
+		"fragColor = texture(myTextureSampler, vTexCoord);\n"
 		"}\0";
 	shaderProgram = glCreateProgram();
 
@@ -60,6 +59,14 @@ GLuint shaders::createProgram() {
 	glAttachShader(shaderProgram, fs);
 
 	glLinkProgram(shaderProgram);
+	GLint linkStatus;
+	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &linkStatus);
+	if (linkStatus == GL_FALSE) {
+		char infoLog[512];
+		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+		std::cerr << "Shader LINK ERROR: " << infoLog << std::endl;
+		return 0;
+	}
 
 	glDeleteShader(vs);
 	glDeleteShader(fs);
